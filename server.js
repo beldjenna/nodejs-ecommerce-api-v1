@@ -18,7 +18,7 @@ if(process.env.NODE_ENV == "development"){
 }
 
 //Mount Routes
-app.use("/api/v1", categoryRoute);
+app.use("/api/v1/categories", categoryRoute);
 
 const PORT = process.env.PORT || 8000;              // default value is 8000
 app.listen(PORT, () => {
