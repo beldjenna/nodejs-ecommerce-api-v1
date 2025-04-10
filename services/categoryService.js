@@ -14,5 +14,14 @@ exports.createCategory = asyncHandler(async (req, res) => {
     const name = req.body.name;
     //async await
     const category = await CategoryModel.create({name, slug : slugify(name)});
-    res.status(201).json({ data: category});
+    res.status(200).json({ data: category});
+});
+
+exports.getCategory = asyncHandler ( async (req, res) => {
+    const {id} = req.params;
+    const category = await CategoryModel.findById(id);
+    if(!category){
+        res.status(404).json({msg : `No category with this id : ${id}`});
+    }
+    res.status(200).json({data : category});
 });
