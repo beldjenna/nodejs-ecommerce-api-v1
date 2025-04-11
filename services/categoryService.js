@@ -2,6 +2,7 @@ const slugify = require("slugify");
 const asyncHandler = require('express-async-handler')
 const CategoryModel = require("../models/categoryModel");
 
+
 exports.getCategories = asyncHandler (async(req, res) => {
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || 5;
